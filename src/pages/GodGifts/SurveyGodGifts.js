@@ -11,7 +11,7 @@ import Question from '../../components/Question';
 export default function SurveyGodGifts() {
     const navigate = useNavigate();
     const questions = constants.godGiftsQuestions;
-    const questionsByPage = 2;
+    const questionsByPage = 10;
     const [indexPage, setIndexPage] = useState(1);
 
     const handleChangeAnswer = (questionId, chosenAnswer) => {
