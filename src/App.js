@@ -8,7 +8,6 @@ import ResultsSurveyGodGifts from './pages/GodGifts/ResultsSurveyGodGifts';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HeaderBar from './components/HeaderBar.js';
 
-
 function App() {
   return (
     <BrowserRouter>

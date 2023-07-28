@@ -14,11 +14,8 @@ function HeaderBar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavDropdown title="Questionários" id="basic-nav-dropdown">
-                            <Link to="/surveyGodGifts">Inventário de Dons</Link>
-                            {/* <NavDropdown.Item href="/surveyGodGifts">Inventário de Dons</NavDropdown.Item>
-                            <NavDropdown.Item href="/surveyWalkWithGod">
-                                Caminhada com Deus
-                            </NavDropdown.Item> */}
+                            <NavDropdown.Item><Link to="/surveyGodGifts" >Inventário de Dons</Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link to="/surveyWalkWithGod">Caminhada com Deus</Link></NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
