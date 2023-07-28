@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/beOneEducation/static/css/main.09d832d4.css",
-    "main.js": "/beOneEducation/static/js/main.88332a66.js",
+    "main.js": "/beOneEducation/static/js/main.ca72ee4a.js",
     "index.html": "/beOneEducation/index.html",
     "main.09d832d4.css.map": "/beOneEducation/static/css/main.09d832d4.css.map",
-    "main.88332a66.js.map": "/beOneEducation/static/js/main.88332a66.js.map"
+    "main.ca72ee4a.js.map": "/beOneEducation/static/js/main.ca72ee4a.js.map"
   },
   "entrypoints": [
     "static/css/main.09d832d4.css",
-    "static/js/main.88332a66.js"
+    "static/js/main.ca72ee4a.js"
   ]
 }
