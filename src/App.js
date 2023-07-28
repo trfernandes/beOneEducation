@@ -14,10 +14,10 @@ function App() {
       <HeaderBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/surveyWalkWithGod" element={<SurveyWalkWithGod />} />
-        <Route exact path="/surveyGodGifts" element={<SurveyGodGifts />} />
-        <Route exact path="/resultsSurveyWalkWithGod" element={<ResultsSurveyWalkWithGod />} />
-        <Route exact path="/resultsSurveyGodGifts" element={<ResultsSurveyGodGifts />} />
+        <Route exact path="/caminhadaDeus" element={<SurveyWalkWithGod />} />
+        <Route exact path="/inventarioDons" element={<SurveyGodGifts />} />
+        <Route exact path="/resultadoCaminhadaDeus" element={<ResultsSurveyWalkWithGod />} />
+        <Route exact path="/resultadoInventarioDons" element={<ResultsSurveyGodGifts />} />
       </Routes>
     </BrowserRouter  >
   );

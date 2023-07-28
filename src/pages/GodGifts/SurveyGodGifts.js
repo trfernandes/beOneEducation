@@ -5,22 +5,27 @@ import Container from 'react-bootstrap/esm/Container';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Pagination from 'react-bootstrap/Pagination';
-
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
 import Question from '../../components/Question';
 
 export default function SurveyGodGifts() {
     const navigate = useNavigate();
-    const questions = constants.godGiftsQuestions;
+    const [questions, setQuestions] = useState(constants.godGiftsQuestions);
+    console.log('state');
+    console.log(questions);
     const questionsByPage = 10;
     const [indexPage, setIndexPage] = useState(1);
 
-    const handleChangeAnswer = (questionId, chosenAnswer) => {
-        questions[questionId - 1].answer = chosenAnswer;
+    const handleChangeAnswer = (questionIndex, chosenAnswer) => {
+        let newArray = [...questions];
+        newArray[questionIndex - 1].answer = chosenAnswer;
+        setQuestions(newArray);
     }
 
     const handleFinishButton = () => {
         if (validate()) {
-            navigate('/resultsSurveyGodGifts', {
+            navigate('/resultadoInventarioDons', {
                 state: { result: questions },
                 replace: false
             });
@@ -34,9 +39,7 @@ export default function SurveyGodGifts() {
     }
     const handleNextQuestions = () => {
         if (canGoNextPage()) {
-
             setIndexPage(indexPage + 1);
-
         }
     }
 
@@ -55,10 +58,19 @@ export default function SurveyGodGifts() {
     }
 
     function validate() {
-        // if (questions.filter(question => question.answer === null).length === 0) {
-        //     alert("Todas as questões devem ser respondidas");
-        //     return false;
-        // }
+        if (questions.filter(question => question.hasOwnProperty('answer') === false || question.answer === null).length > 0) {
+            toast.error('Todas as questões devem ser preenchidas', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return false;
+        }
         return true;
     }
 
@@ -73,6 +85,17 @@ export default function SurveyGodGifts() {
 
     return (
         <Container >
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <Card id='cardSurvey' className="shadow-lg p-2 bg-white rounded">
                 <Card.Header className='d-flex pt-2 pl-0 flex-column bg-white align-items-left'>
                     <h3>Inventário de Dons</h3>
@@ -82,10 +105,10 @@ export default function SurveyGodGifts() {
 
                     <div>
                         {getQuestionsOfActualPage().map((question) =>
-                            <div key={'mainQuestionDiv'+question.id}>
-                                <Question answerOptions={constants.godGiftsQuestionsAnswers} key={'question'+question.id}
+                            <div key={'mainQuestionDiv' + question.id}>
+                                <Question answerOptions={constants.godGiftsQuestionsAnswers} key={'question' + question.id}
                                     question={question} onChangeAnswer={handleChangeAnswer} />
-                                <hr className="hr" key={'questionHR'+question.id}/>
+                                <hr className="hr" key={'questionHR' + question.id} />
                             </div>
                         )}
                     </div>
