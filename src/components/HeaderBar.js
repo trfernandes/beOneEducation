@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
+import '../styles/components/headerbar.css'
 
 function HeaderBar() {
     return (
@@ -14,8 +15,8 @@ function HeaderBar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavDropdown title="Questionários" id="basic-nav-dropdown">
-                            <NavDropdown.Item><Link to="/surveyGodGifts" >Inventário de Dons</Link></NavDropdown.Item>
-                            <NavDropdown.Item><Link to="/surveyWalkWithGod">Caminhada com Deus</Link></NavDropdown.Item>
+                            <NavDropdown.Item ><Link to="/surveyGodGifts" className="text-decoration-none text-dark font-weight-bold">Inventário de Dons</Link></NavDropdown.Item>
+                            <NavDropdown.Item><Link to="/surveyWalkWithGod" className="text-decoration-none text-dark font-weight-bold">Caminhada com Deus</Link></NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
